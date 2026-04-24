@@ -106,4 +106,8 @@
   .clip-slant {
     clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
   }
+  /* Force hamburger menu icons to white in mobile header */
+  button[aria-label="Toggle menu"] svg {
+    stroke: white !important;
+  }
 }
