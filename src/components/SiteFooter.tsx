@@ -9,20 +9,20 @@ export function SiteFooter() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-primary font-display text-xl font-bold text-primary-foreground">
-                R
+                SP
               </div>
               <div>
                 <div className="font-display text-xl uppercase tracking-wider">
-                  Reign Athletics
+                  Saint Peters Basketball Academy
                 </div>
                 <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  Basketball Program
+                  Home of the Lions
                 </div>
               </div>
             </div>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              An elite basketball academy developing the next generation of student-athletes
-              through discipline, competition, and excellence on and off the court.
+              A holistic academy guiding Saint Peters student-athletes with elite basketball training,
+              academic accountability, and a lion-hearted culture.
             </p>
             <div className="mt-5 flex gap-3">
               {[Instagram, Twitter, Youtube, Facebook].map((Icon, i) => (
@@ -56,14 +56,14 @@ export function SiteFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>1500 Hardwood Drive</li>
               <li>Atlanta, GA 30303</li>
-              <li>info@reignathletics.com</li>
+              <li>info@saintpetersacademy.com</li>
               <li>(404) 555-0117</li>
             </ul>
           </div>
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs uppercase tracking-wider text-muted-foreground sm:flex-row sm:items-center">
-          <div>© {new Date().getFullYear()} Reign Athletics. All rights reserved.</div>
-          <div>Built for champions.</div>
+          <div>© {new Date().getFullYear()} Saint Peters Basketball Academy. All rights reserved.</div>
+          <div>Fear the Lions.</div>
         </div>
       </div>
     </footer>

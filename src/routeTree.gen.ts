@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as SummerAcademyRouteImport } from './routes/summer-academy'
 import { Route as StatsRouteImport } from './routes/stats'
 import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as RecruitsRouteImport } from './routes/recruits'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SummerAcademyRoute = SummerAcademyRouteImport.update({
+  id: '/summer-academy',
+  path: '/summer-academy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StatsRoute = StatsRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/recruits': typeof RecruitsRoute
   '/schedule': typeof ScheduleRoute
   '/stats': typeof StatsRoute
+  '/summer-academy': typeof SummerAcademyRoute
   '/team': typeof TeamRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/recruits': typeof RecruitsRoute
   '/schedule': typeof ScheduleRoute
   '/stats': typeof StatsRoute
+  '/summer-academy': typeof SummerAcademyRoute
   '/team': typeof TeamRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/recruits': typeof RecruitsRoute
   '/schedule': typeof ScheduleRoute
   '/stats': typeof StatsRoute
+  '/summer-academy': typeof SummerAcademyRoute
   '/team': typeof TeamRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/recruits'
     | '/schedule'
     | '/stats'
+    | '/summer-academy'
     | '/team'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/recruits'
     | '/schedule'
     | '/stats'
+    | '/summer-academy'
     | '/team'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/recruits'
     | '/schedule'
     | '/stats'
+    | '/summer-academy'
     | '/team'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   RecruitsRoute: typeof RecruitsRoute
   ScheduleRoute: typeof ScheduleRoute
   StatsRoute: typeof StatsRoute
+  SummerAcademyRoute: typeof SummerAcademyRoute
   TeamRoute: typeof TeamRoute
 }
 
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/summer-academy': {
+      id: '/summer-academy'
+      path: '/summer-academy'
+      fullPath: '/summer-academy'
+      preLoaderRoute: typeof SummerAcademyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/stats': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   RecruitsRoute: RecruitsRoute,
   ScheduleRoute: ScheduleRoute,
   StatsRoute: StatsRoute,
+  SummerAcademyRoute: SummerAcademyRoute,
   TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport

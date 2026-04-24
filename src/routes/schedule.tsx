@@ -8,13 +8,14 @@ import { formatSessionDate, formatSessionTime } from "@/lib/academy/formatters";
 export const Route = createFileRoute("/schedule")({
   head: () => ({
     meta: [
-      { title: "Academy Schedule — Reign Basketball" },
+      { title: "SPBA / Schedule" },
       {
         name: "description",
-        content: "View every Reign Basketball academy session and training opportunity pulled straight from Supabase.",
+        content:
+          "View every Saint Peters Basketball Academy session and training opportunity pulled straight from Supabase.",
       },
-      { property: "og:title", content: "Academy Schedule — Reign Athletics" },
-      { property: "og:description", content: "Upcoming and completed Reign Basketball academy sessions." },
+      { property: "og:title", content: "SPBA / Schedule" },
+      { property: "og:description", content: "Upcoming and completed Saint Peters Basketball Academy sessions." },
     ],
   }),
   component: SchedulePage,
@@ -23,49 +24,49 @@ export const Route = createFileRoute("/schedule")({
 const fallbackSessions: AcademySession[] = [
   {
     id: "fallback-1",
-    title: "Spring Academy Kickoff",
-    description: "Footwork, ball control, and confidence-building reps.",
+    title: "Summer Skills Kickoff",
+    description: "Footwork, ball control, and confidence-building reps for new Lions.",
     level: "Grades 3-4",
-    session_date: "2025-05-12",
+    session_date: "2025-06-12",
     start_time: "17:30",
     end_time: "19:00",
-    location: "Reign Training Center",
+    location: "Saint Peters Fieldhouse",
     display_order: 1,
     is_active: true,
   },
   {
     id: "fallback-2",
-    title: "Shooter's Lab",
-    description: "Shot mechanics, spacing, and decision-making.",
+    title: "Sharpshooter Lab",
+    description: "Shot mechanics, spacing, and decision-making reps.",
     level: "Grades 5-6",
-    session_date: "2025-05-19",
+    session_date: "2025-06-19",
     start_time: "18:00",
     end_time: "19:30",
-    location: "Reign Training Center",
+    location: "Saint Peters Fieldhouse",
     display_order: 2,
     is_active: true,
   },
   {
     id: "fallback-3",
-    title: "Elite Guard Workshop",
-    description: "Advanced reads, ball screens, and leadership reps.",
+    title: "Lion Leader Workshop",
+    description: "Advanced reads, ball screens, and leadership reps for older hoopers.",
     level: "Grades 7-8",
-    session_date: "2025-05-26",
+    session_date: "2025-06-26",
     start_time: "18:30",
     end_time: "20:00",
-    location: "Reign Performance Lab",
+    location: "Saint Peters High",
     display_order: 3,
     is_active: true,
   },
   {
     id: "fallback-4",
     title: "Parents Info Night",
-    description: "Academy pathway, feeder program timeline, and Q&A.",
+    description: "Academy pathway, summer expectations, and Q&A with coaches.",
     level: "Families",
-    session_date: "2025-06-02",
+    session_date: "2025-07-02",
     start_time: "18:00",
     end_time: "19:00",
-    location: "Reign Training Center",
+    location: "Saint Peters Commons",
     display_order: 4,
     is_active: true,
   },
@@ -147,7 +148,7 @@ function SchedulePage() {
       <PageHero
         eyebrow="Academy"
         title="Schedule"
-        subtitle="Live view of every academy session straight from the admin dashboard."
+        subtitle="Live view of every Saint Peters academy session straight from the admin dashboard."
       />
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">

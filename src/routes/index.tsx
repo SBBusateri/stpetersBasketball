@@ -2,25 +2,29 @@ import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-import heroArena from "@/assets/hero-arena.jpg";
-import playerAction from "@/assets/player-action.jpg";
+import summerTrainFlyer from "@/assets/summertrain.png";
+import homeHeroBackground from "@/assets/homebackground.png";
 import { supabase } from "@/lib/supabase/client";
-import type { AcademyHighlight, AcademySession, SiteSectionSetting } from "@/lib/supabase/types";
+import type {
+  AcademyHighlight,
+  AcademySession,
+  SiteSectionSetting,
+  HomepageHeroSettings,
+} from "@/lib/supabase/types";
 import { formatSessionDate, formatSessionTime } from "@/lib/academy/formatters";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Reign Basketball Academy" },
+      { title: "SPBA / Home" },
       {
         name: "description",
-        content:
-          "Youth development hub for Reign Athletics — academy sessions, coaching, and the future feeder program.",
+        content: "SPBA home base for lion-hearted middle and elementary hoopers and their families.",
       },
-      { property: "og:title", content: "Reign Basketball Academy" },
+      { property: "og:title", content: "SPBA / Home" },
       {
         property: "og:description",
-        content: "Building the next generation of Reign Basketball through structured academy training.",
+        content: "Lion-led development for future Saint Peters hoopers and families.",
       },
     ],
   }),
@@ -31,21 +35,21 @@ const fallbackHighlights: AcademyHighlight[] = [
   {
     id: "local-1",
     title: "Grades 3-8",
-    description: "Age-specific skill tracks for future Reign athletes.",
+    description: "Age-specific skill pods that build Saint Peters fundamentals.",
     display_order: 1,
     is_active: true,
   },
   {
     id: "local-2",
     title: "Fundamentals First",
-    description: "Movement, mindset, and teamwork at the core of every session.",
+    description: "Movement, mindset, and team habits rooted in Lion discipline.",
     display_order: 2,
     is_active: true,
   },
   {
     id: "local-3",
-    title: "Feeder Program Incoming",
-    description: "Player portals with team schedules launch alongside the academy expansion.",
+    title: "Family Connection",
+    description: "Guardians stay looped in with progress reports and summer programming.",
     display_order: 3,
     is_active: true,
   },
@@ -54,49 +58,49 @@ const fallbackHighlights: AcademyHighlight[] = [
 const fallbackSessions: AcademySession[] = [
   {
     id: "fallback-1",
-    title: "Spring Academy Kickoff",
-    description: "Footwork, ball control, and confidence-building reps.",
+    title: "Summer Skills Kickoff",
+    description: "Footwork, ball control, and confidence-building reps for new Lions.",
     level: "Grades 3-4",
-    session_date: "2025-05-12",
+    session_date: "2025-06-12",
     start_time: "17:30",
     end_time: "19:00",
-    location: "Reign Training Center",
+    location: "Saint Peters Fieldhouse",
     display_order: 1,
     is_active: true,
   },
   {
     id: "fallback-2",
-    title: "Shooter's Lab",
-    description: "Shot mechanics, spacing, and decision-making.",
+    title: "Sharpshooter Lab",
+    description: "Shot mechanics, spacing, and decision-making reps.",
     level: "Grades 5-6",
-    session_date: "2025-05-19",
+    session_date: "2025-06-19",
     start_time: "18:00",
     end_time: "19:30",
-    location: "Reign Training Center",
+    location: "Saint Peters Fieldhouse",
     display_order: 2,
     is_active: true,
   },
   {
     id: "fallback-3",
-    title: "Elite Guard Workshop",
-    description: "Advanced reads, ball screens, and leadership reps.",
+    title: "Lion Leader Workshop",
+    description: "Advanced reads, ball screens, and leadership reps for older hoopers.",
     level: "Grades 7-8",
-    session_date: "2025-05-26",
+    session_date: "2025-06-26",
     start_time: "18:30",
     end_time: "20:00",
-    location: "Reign Performance Lab",
+    location: "Saint Peters High",
     display_order: 3,
     is_active: true,
   },
   {
     id: "fallback-4",
-    title: "Parents Info Night",
-    description: "Academy pathway, feeder program timeline, and Q&A.",
+    title: "Family Info Night",
+    description: "Academy pathway, summer expectations, and Q&A with coaches.",
     level: "Families",
-    session_date: "2025-06-02",
+    session_date: "2025-07-02",
     start_time: "18:00",
     end_time: "19:00",
-    location: "Reign Training Center",
+    location: "Saint Peters Commons",
     display_order: 4,
     is_active: true,
   },
@@ -105,20 +109,20 @@ const fallbackSessions: AcademySession[] = [
 const roadmap = [
   {
     phase: "Phase 1",
-    title: "Academy Launch",
-    description: "Weekly skill blocks and movement screenings for young hoopers.",
+    title: "Academy Foundations",
+    description: "Weekly skill blocks and movement screenings for Saint Peters youth.",
     timing: "Spring 2025",
   },
   {
     phase: "Phase 2",
-    title: "Team Pods",
-    description: "Small-group sessions evolve into squad scrimmages and seasonal play.",
+    title: "Lion Pods",
+    description: "Small-group squads form with position-specific instruction and scrimmages.",
     timing: "Summer 2025",
   },
   {
     phase: "Phase 3",
-    title: "Feeder League Portal",
-    description: "Players access rosters, schedules, and film inside the Reign digital hub.",
+    title: "Community Portal",
+    description: "Families track rosters, schedules, and film inside the Saint Peters hub.",
     timing: "Winter 2025",
   },
 ];
@@ -138,17 +142,42 @@ const news = [
   },
   {
     tag: "Playbook Drop",
-    title: "Reign motion spacing",
-    description: "Download the core spacing package that feeds into the future feeder program sets.",
+    title: "Lion motion spacing",
+    description: "Download spacing principles that feed into Saint Peters youth sets.",
     note: "Playbook PDFs coming soon",
   },
 ];
 
 type SectionVisibilityRow = Pick<SiteSectionSetting, "section_key" | "is_active">;
 
+type HeroPayload = {
+  badgeText: string;
+  headline: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  imageUrl?: string;
+};
+
 const sectionVisibilityDefaults: Record<string, boolean> = {
-  inside_academy: false,
-  feeder_timeline: false,
+  inside_academy: true,
+  feeder_timeline: true,
+  home_highlights: true,
+  home_sessions: true,
+};
+
+const fallbackHero: HeroPayload = {
+  badgeText: "Lion Pride Summer",
+  headline: "For middle & elementary school we are having basketball.",
+  description:
+    "Saint Peters Basketball Academy is the summer home for lion-hearted hoopers ready to grow their skills, confidence, and community.",
+  primaryLabel: "Sign up for Summer Academy",
+  primaryHref: "/summer-academy",
+  secondaryLabel: "View Full Schedule",
+  secondaryHref: "/schedule",
+  imageUrl: summerTrainFlyer,
 };
 
 function Home() {
@@ -159,9 +188,47 @@ function Home() {
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [sessionsError, setSessionsError] = useState<string | null>(null);
   const [sectionVisibility, setSectionVisibility] = useState(sectionVisibilityDefaults);
+  const [heroSettings, setHeroSettings] = useState<HeroPayload>(fallbackHero);
 
   useEffect(() => {
     let isMounted = true;
+
+    async function fetchHero() {
+      const { data, error } = await supabase
+        .from("homepage_hero_settings")
+        .select(
+          "badge_text,headline,description,primary_cta_label,primary_cta_href,secondary_cta_label,secondary_cta_href,image_url",
+        )
+        .order("updated_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (!isMounted) {
+        return;
+      }
+
+      if (error && error.code !== "PGRST116") {
+        console.error("Failed to load hero settings", error);
+        return;
+      }
+
+      if (data) {
+        const payload: HeroPayload = {
+          badgeText: data.badge_text ?? fallbackHero.badgeText,
+          headline: data.headline ?? fallbackHero.headline,
+          description: data.description ?? fallbackHero.description,
+          primaryLabel: data.primary_cta_label ?? fallbackHero.primaryLabel,
+          primaryHref: data.primary_cta_href ?? fallbackHero.primaryHref,
+          secondaryLabel: data.secondary_cta_label ?? fallbackHero.secondaryLabel,
+          secondaryHref: data.secondary_cta_href ?? fallbackHero.secondaryHref,
+          imageUrl: data.image_url ?? fallbackHero.imageUrl,
+        };
+
+        setHeroSettings(payload);
+      }
+    }
+
+    fetchHero();
 
     async function fetchHighlights() {
       setLoadingHighlights(true);
@@ -191,7 +258,6 @@ function Home() {
     }
 
     fetchHighlights();
-
     async function fetchSessions() {
       setLoadingSessions(true);
       const { data, error } = await supabase
@@ -250,111 +316,136 @@ function Home() {
 
   const highlightItems = highlights.length > 0 ? highlights : fallbackHighlights;
   const sessionItems = sessions.length > 0 ? sessions : fallbackSessions;
-  const showFeederTimeline = sectionVisibility.feeder_timeline ?? false;
-  const showInsideAcademy = sectionVisibility.inside_academy ?? false;
+  const showFeederTimeline = sectionVisibility.feeder_timeline ?? true;
+  const showInsideAcademy = sectionVisibility.inside_academy ?? true;
+  const showHighlights = sectionVisibility.home_highlights ?? true;
+  const showSessions = sectionVisibility.home_sessions ?? true;
 
   return (
     <PageShell>
       {/* HERO */}
-      <section className="relative isolate min-h-[80vh] overflow-hidden">
+      <section className="relative border-b border-border">
         <img
-          src={heroArena}
-          alt="Empty arena lit by stadium lights"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
+          src={homeHeroBackground}
+          alt="Saint Peters Basketball Academy background"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-
-        <div className="relative mx-auto flex min-h-[80vh] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6">
-          <div className="mb-6 inline-flex w-fit items-center gap-2 border-l-2 border-primary pl-3 font-display text-xs uppercase tracking-[0.4em] text-primary">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-            Academy Enrollment Now Open
+        <div className="absolute inset-0 bg-background/85" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,380px)]">
+          <div>
+            {heroSettings.badgeText && (
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 font-display text-[10px] uppercase tracking-[0.4em] text-primary">
+                {heroSettings.badgeText}
+              </div>
+            )}
+            <h1 className="max-w-3xl font-display text-5xl uppercase leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+              {heroSettings.headline}
+            </h1>
+            <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">{heroSettings.description}</p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              {heroSettings.primaryLabel && heroSettings.primaryHref && (
+                <Link
+                  to={heroSettings.primaryHref}
+                  className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-elevated transition-transform hover:-translate-y-0.5"
+                >
+                  {heroSettings.primaryLabel}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
+              {heroSettings.secondaryLabel && heroSettings.secondaryHref && (
+                <Link
+                  to={heroSettings.secondaryHref}
+                  className="inline-flex items-center gap-2 rounded-sm border border-border bg-card/30 px-6 py-4 text-sm font-bold uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  {heroSettings.secondaryLabel}
+                </Link>
+              )}
+            </div>
           </div>
-          <h1 className="max-w-4xl font-display text-6xl uppercase leading-[0.9] tracking-tight sm:text-8xl md:text-[8rem]">
-            Build the <br />
-            <span className="text-primary">next run.</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-foreground/80">
-            Reign Basketball Academy is the launchpad for middle and elementary hoopers entering the
-            program. Train with our staff, track progress, and get ready for the future feeder teams.
-          </p>
+          <div className="flex justify-center">
+            <img
+              src={heroSettings.imageUrl ?? summerTrainFlyer}
+              alt="Saint Peters Summer Academy flyer"
+              className="w-full max-w-sm rounded-md border border-border bg-white shadow-elevated"
+            />
+          </div>
         </div>
-
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* ACADEMY SESSIONS */}
-      <section id="schedule" className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 className="mt-3 font-display text-4xl uppercase sm:text-5xl">Upcoming Academy Sessions</h2>
-            </div>
-            <Link
-              to="/schedule"
-              className="text-xs font-bold uppercase tracking-wider text-primary hover:underline"
-            >
-              Full Calendar →
-            </Link>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {sessionItems.map((session) => (
-              <div
-                key={session.id}
-                className="flex flex-col justify-between rounded-sm border border-border bg-card/30 p-6 transition-colors hover:border-primary hover:bg-card"
-              >
-                <div>
-                  <div className="font-display text-xs uppercase tracking-[0.4em] text-primary">
-                    {formatSessionDate(session.session_date)}
-                  </div>
-                  <h3 className="mt-3 font-display text-2xl uppercase leading-tight">{session.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{session.description}</p>
-                </div>
-                <div className="mt-6 border-t border-border pt-4 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
-                  <div>{session.level}</div>
-                  <div className="mt-1 tracking-[0.2em]">
-                    {formatSessionTime(session.start_time)} – {formatSessionTime(session.end_time)}
-                  </div>
-                  <div className="mt-1 text-[10px] tracking-[0.3em] text-foreground/70">{session.location}</div>
-                </div>
+      {showSessions && (
+        <section id="schedule" className="py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <h2 className="mt-3 font-display text-4xl uppercase sm:text-5xl">Upcoming Academy Sessions</h2>
               </div>
-            ))}
-          </div>
-          {sessionsError && !loadingSessions && (
-            <div className="mt-6 rounded-sm border border-destructive/40 bg-destructive/10 px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-destructive">
-              Using starter sessions until Supabase data is available.
+              <Link
+                to="/schedule"
+                className="text-xs font-bold uppercase tracking-wider text-primary hover:underline"
+              >
+                Full Calendar →
+              </Link>
             </div>
-          )}
-        </div>
-      </section>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {sessionItems.map((session) => (
+                <div
+                  key={session.id}
+                  className="flex flex-col justify-between rounded-sm border border-border bg-card/30 p-6 transition-colors hover:border-primary hover:bg-card"
+                >
+                  <div>
+                    <div className="font-display text-xs uppercase tracking-[0.4em] text-primary">
+                      {formatSessionDate(session.session_date)}
+                    </div>
+                    <h3 className="mt-3 font-display text-2xl uppercase leading-tight">{session.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">{session.description}</p>
+                  </div>
+                  <div className="mt-6 border-t border-border pt-4 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
+                    <div>{session.level}</div>
+                    <div className="mt-1 tracking-[0.2em]">
+                      {formatSessionTime(session.start_time)} – {formatSessionTime(session.end_time)}
+                    </div>
+                    <div className="mt-1 text-[10px] tracking-[0.3em] text-foreground/70">{session.location}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {sessionsError && !loadingSessions && (
+              <div className="mt-6 rounded-sm border border-destructive/40 bg-destructive/10 px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-destructive">
+                Using starter sessions until Supabase data is available.
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ACADEMY VALUES */}
-      <section className="border-t border-border bg-background/90 py-16 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid gap-px bg-border md:grid-cols-3">
-            {highlightItems.map((item, index) => (
-              <div
-                key={item.id}
-                className="group flex flex-col justify-between bg-background p-8 transition-colors hover:bg-card"
-              >
-                <div className="flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-primary/80">
-                  <span className="font-display">Core Value {index + 1}</span>
+      {showHighlights && (
+        <section className="border-t border-border bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="grid gap-px bg-border md:grid-cols-3">
+              {highlightItems.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="group flex flex-col justify-between bg-background p-8 transition-colors hover:bg-card"
+                >
+                  <div className="flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-primary/80">
+                    <span className="font-display">Core Value {index + 1}</span>
+                  </div>
+                  <div className="mt-6 font-display text-2xl uppercase">{item.title}</div>
+                  <p className="mt-4 text-sm text-muted-foreground">{item.description}</p>
                 </div>
-                <div className="mt-4 font-display text-3xl uppercase leading-tight">{item.title}</div>
-                <p className="mt-3 text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
-          </div>
-          {highlightsError && !loadingHighlights && (
-            <div className="mt-4 rounded-sm border border-destructive/40 bg-destructive/10 px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-destructive">
-              Using starter copy until highlights are added in Supabase.
+              ))}
             </div>
-          )}
-        </div>
-      </section>
+            {highlightsError && !loadingHighlights && (
+              <div className="mt-4 rounded-sm border border-destructive/40 bg-destructive/10 px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-destructive">
+                Using starter copy until highlights are added in Supabase.
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ROADMAP */}
       {showFeederTimeline && (
@@ -390,32 +481,21 @@ function Home() {
 
       {/* ADMIN PREP NOTE: Academy Schedule management will plug into this section once data model is ready. */}
 
-      {/* CTA — ACADEMY */}
-      <section className="relative overflow-hidden border-b border-border">
-        <img
-          src={playerAction}
-          alt="Basketball player attacking the rim"
-          width={1200}
-          height={1500}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 py-24 sm:px-6 md:flex-row md:items-end md:justify-between">
+      {/* CTA — CONTACT */}
+      <section className="border-y border-border bg-primary/5 py-16">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:px-6 md:flex-row md:items-center">
           <div>
-            <div className="font-display text-xs uppercase tracking-[0.4em] text-primary">
-              Families & Players
-            </div>
-            <h2 className="mt-3 max-w-xl font-display text-5xl uppercase leading-none sm:text-7xl">
-              Your development plan starts here.
+            <div className="font-display text-xs uppercase tracking-[0.4em] text-primary">Families & Players</div>
+            <h2 className="mt-3 max-w-2xl font-display text-4xl uppercase leading-tight text-foreground sm:text-5xl">
+              Have questions about training or want to meet our staff?
             </h2>
           </div>
           <Link
             to="/contact"
-            className="group inline-flex w-fit items-center gap-2 rounded-sm bg-primary px-6 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground"
+            className="inline-flex items-center gap-2 rounded-sm border border-primary bg-primary px-6 py-4 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-elevated transition-transform hover:-translate-y-0.5"
           >
-            Talk With Our Staff
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            Talk with a Coach
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

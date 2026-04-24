@@ -5,13 +5,14 @@ import { CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/recruits")({
   head: () => ({
     meta: [
-      { title: "Recruiting — Reign Athletics Basketball" },
+      { title: "SPBA / Recruiting" },
       {
         name: "description",
-        content: "Apply to join Reign Athletics. Our recruiting process develops elite student-athletes for the next level.",
+        content:
+          "Apply to join Saint Peters Basketball Academy. Our recruiting process develops student-athletes for the next level with lion-hearted standards.",
       },
-      { property: "og:title", content: "Recruiting — Reign Athletics" },
-      { property: "og:description", content: "Join the program. Build your future." },
+      { property: "og:title", content: "SPBA / Recruiting" },
+      { property: "og:description", content: "Join the pride. Build your future." },
     ],
   }),
   component: RecruitsPage,
@@ -30,8 +31,8 @@ function RecruitsPage() {
     <PageShell>
       <PageHero
         eyebrow="Class of 2026 & 2027"
-        title="Join the Reign"
-        subtitle="We recruit student-athletes who compete with discipline, train with purpose, and lead with character."
+        title="Join the Pride"
+        subtitle="We recruit student-athletes who compete with discipline, train with purpose, and lead with lion-hearted character."
       />
 
       <section className="py-20">

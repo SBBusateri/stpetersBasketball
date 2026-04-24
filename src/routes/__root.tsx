@@ -29,11 +29,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Reign Athletics — Elite Basketball Academy" },
+      { title: "SPBA / Platform" },
       {
         name: "description",
         content:
-          "Reign Athletics develops elite student-athletes through a championship basketball program built on discipline, competition, and excellence.",
+          "SPBA develops lion-hearted student-athletes through gold-standard training, academics, and family-focused support.",
       },
     ],
     links: [

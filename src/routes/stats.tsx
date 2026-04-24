@@ -4,9 +4,12 @@ import { PageShell, PageHero } from "@/components/PageShell";
 export const Route = createFileRoute("/stats")({
   head: () => ({
     meta: [
-      { title: "Team Stats — Reign Athletics Basketball" },
-      { name: "description", content: "Individual and team statistics for the 2025-26 Reign Athletics season." },
-      { property: "og:title", content: "Stats — Reign Athletics" },
+      { title: "SPBA / Stats" },
+      {
+        name: "description",
+        content: "Individual and team statistics for the 2025-26 Saint Peters Basketball Academy season.",
+      },
+      { property: "og:title", content: "SPBA / Stats" },
       { property: "og:description", content: "Player and team statistics." },
     ],
   }),
@@ -40,7 +43,7 @@ function StatsPage() {
         subtitle="Through 21 games. Updated after every contest."
       />
 
-      <section className="border-b border-border bg-card/30 py-14">
+      <section className="border-b border-border bg-primary/5 py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-8 font-display text-xs uppercase tracking-[0.4em] text-primary">
             Team Snapshot
@@ -66,7 +69,7 @@ function StatsPage() {
             </div>
             <h2 className="mt-3 font-display text-4xl uppercase">Player Statistics</h2>
           </div>
-          <div className="overflow-x-auto rounded-sm border border-border">
+          <div className="overflow-x-auto rounded-sm border border-border bg-card/10">
             <table className="w-full min-w-[640px] text-sm">
               <thead className="border-b border-border bg-card/50 font-display text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 <tr>

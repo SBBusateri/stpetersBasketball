@@ -159,6 +159,74 @@ create policy "Anon manage site sections (temporary)"
   with check (auth.role() = 'anon');
 
 alter table site_sections enable row level security;
+
+insert into site_sections (section_key, label, is_active) values
+  ('inside_academy', 'Inside the Academy', true),
+  ('feeder_timeline', 'Feeder Program Timeline', true),
+  ('home_highlights', 'Homepage Highlights', true),
+  ('home_sessions', 'Homepage Sessions', true)
+on conflict (section_key) do nothing;
+
+create table if not exists homepage_hero_settings (
+  id uuid primary key default gen_random_uuid(),
+  badge_text text,
+  headline text,
+  description text,
+  primary_cta_label text,
+  primary_cta_href text,
+  secondary_cta_label text,
+  secondary_cta_href text,
+  image_url text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create trigger set_homepage_hero_settings_updated_at
+  before update on homepage_hero_settings
+  for each row execute procedure trigger_set_timestamp();
+
+insert into homepage_hero_settings (badge_text, headline, description, primary_cta_label, primary_cta_href, secondary_cta_label, secondary_cta_href)
+values ('Lion Pride Summer', 'For middle & elementary school we are having basketball.', 'Saint Peters Basketball Academy is the summer home for lion-hearted hoopers ready to grow their skills, confidence, and community.', 'Sign up for Summer Academy', '/summer-academy', 'View Full Schedule', '/schedule')
+on conflict do nothing;
+
+create policy "Public read access to hero settings"
+  on homepage_hero_settings for select
+  using (true);
+
+create policy "Anon manage hero settings (temporary)"
+  on homepage_hero_settings for all
+  using (auth.role() = 'anon')
+  with check (auth.role() = 'anon');
+
+alter table homepage_hero_settings enable row level security;
+
+create table if not exists academy_coaches (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  title text not null,
+  years text not null,
+  bio text not null,
+  display_order int not null default 1,
+  is_active boolean not null default true,
+  headshot_url text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create trigger set_academy_coaches_updated_at
+  before update on academy_coaches
+  for each row execute procedure trigger_set_timestamp();
+
+create policy "Public read access to active coaches"
+  on academy_coaches for select
+  using (is_active = true);
+
+create policy "Anon manage coaches (temporary)"
+  on academy_coaches for all
+  using (auth.role() = 'anon')
+  with check (auth.role() = 'anon');
+
+alter table academy_coaches enable row level security;
 --end
 
 ```

@@ -6,12 +6,12 @@ import { PageShell, PageHero } from "@/components/PageShell";
 export const Route = createFileRoute("/team")({
   head: () => ({
     meta: [
-      { title: "Roster — Reign Athletics Men's Basketball" },
+      { title: "SPBA / Roster" },
       {
         name: "description",
-        content: "Meet the 2025-26 Reign Athletics basketball roster — elite student-athletes from across the country.",
+        content: "Meet the 2025-26 Saint Peters Basketball academy roster — elite student-athletes from across the country.",
       },
-      { property: "og:title", content: "Roster — Reign Athletics" },
+      { property: "og:title", content: "SPBA / Roster" },
       { property: "og:description", content: "Meet the 2025-26 roster." },
     ],
   }),
@@ -50,7 +50,7 @@ function TeamPage() {
       <PageHero
         eyebrow="2025–26 Season"
         title="Roster"
-        subtitle="Ten players. One mission. Tap a player to view their full bio."
+        subtitle="Ten players. One pride. Tap a player to view their full bio."
       />
 
       <section className="py-20">
