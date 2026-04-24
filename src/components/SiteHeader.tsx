@@ -52,7 +52,7 @@ export function SiteHeader() {
 
           <button
             onClick={() => setOpen(!open)}
-            className="rounded-sm p-2 lg:hidden"
+            className="rounded-sm p-2 text-white lg:hidden"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
