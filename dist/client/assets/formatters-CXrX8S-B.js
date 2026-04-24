@@ -1,0 +1,1 @@
+function i(t){const r=new Date(t);return Number.isNaN(r.getTime())?t.toUpperCase():r.toLocaleDateString("en-US",{month:"short",day:"numeric"}).toUpperCase()}function a(t){if(!t)return"";const r=t.split(":");if(r.length<2)return t;const e=Number(r[0]),n=r[1]?.slice(0,2)??"00";if(Number.isNaN(e))return t;const o=e>=12?"PM":"AM";return`${(e+11)%12+1}:${n} ${o}`}export{a,i as f};

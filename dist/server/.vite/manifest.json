@@ -1,0 +1,194 @@
+{
+  "%23tanstack-start-plugin-adapters": {
+    "file": "assets/__23tanstack-start-plugin-adapters-Cwee5PKy.js",
+    "name": "__23tanstack-start-plugin-adapters",
+    "src": "%23tanstack-start-plugin-adapters",
+    "isDynamicEntry": true
+  },
+  "/Users/blakebusateri/Development/stpetersBasketball/src/styles.css": {
+    "file": "assets/styles-DSKw14Wj.css",
+    "src": "/Users/blakebusateri/Development/stpetersBasketball/src/styles.css"
+  },
+  "_PageShell-1oarDiCA.js": {
+    "file": "assets/PageShell-1oarDiCA.js",
+    "name": "PageShell",
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "_chevron-down-CPZ81NS-.js": {
+    "file": "assets/chevron-down-CPZ81NS-.js",
+    "name": "chevron-down",
+    "imports": [
+      "_PageShell-1oarDiCA.js"
+    ]
+  },
+  "_client-anzYIWag.js": {
+    "file": "assets/client-anzYIWag.js",
+    "name": "client"
+  },
+  "_formatters-CkFvq0fL.js": {
+    "file": "assets/formatters-CkFvq0fL.js",
+    "name": "formatters"
+  },
+  "_router-zMx3WVxY.js": {
+    "file": "assets/router-zMx3WVxY.js",
+    "name": "router",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js"
+    ],
+    "dynamicImports": [
+      "src/routes/team.tsx?tsr-split=component",
+      "src/routes/stats.tsx?tsr-split=component",
+      "src/routes/schedule.tsx?tsr-split=component",
+      "src/routes/recruits.tsx?tsr-split=component",
+      "src/routes/contact.tsx?tsr-split=component",
+      "src/routes/coaches.tsx?tsr-split=component",
+      "src/routes/admin.tsx?tsr-split=component",
+      "src/routes/index.tsx?tsr-split=component"
+    ],
+    "assets": [
+      "assets/styles-DSKw14Wj.css"
+    ]
+  },
+  "_worker-entry-sH-sqigk.js": {
+    "file": "assets/worker-entry-sH-sqigk.js",
+    "name": "worker-entry",
+    "dynamicImports": [
+      "tanstack-start-manifest:v",
+      "_router-zMx3WVxY.js",
+      "node_modules/@tanstack/react-start/dist/plugin/default-entry/start.ts",
+      "%23tanstack-start-plugin-adapters"
+    ]
+  },
+  "node_modules/@tanstack/react-start/dist/plugin/default-entry/start.ts": {
+    "file": "assets/start-HYkvq4Ni.js",
+    "name": "start",
+    "src": "node_modules/@tanstack/react-start/dist/plugin/default-entry/start.ts",
+    "isDynamicEntry": true
+  },
+  "src/assets/hero-arena.jpg": {
+    "file": "assets/hero-arena-Ys8Y40CD.jpg",
+    "src": "src/assets/hero-arena.jpg"
+  },
+  "src/assets/player-action.jpg": {
+    "file": "assets/player-action-DLHnel5P.jpg",
+    "src": "src/assets/player-action.jpg"
+  },
+  "src/routes/admin.tsx?tsr-split=component": {
+    "file": "assets/admin-No1Z0nSN.js",
+    "name": "admin",
+    "src": "src/routes/admin.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_router-zMx3WVxY.js",
+      "_PageShell-1oarDiCA.js",
+      "_client-anzYIWag.js",
+      "_chevron-down-CPZ81NS-.js"
+    ]
+  },
+  "src/routes/coaches.tsx?tsr-split=component": {
+    "file": "assets/coaches-DffD1qr4.js",
+    "name": "coaches",
+    "src": "src/routes/coaches.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_PageShell-1oarDiCA.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "src/routes/contact.tsx?tsr-split=component": {
+    "file": "assets/contact-CBRApYdL.js",
+    "name": "contact",
+    "src": "src/routes/contact.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_PageShell-1oarDiCA.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "src/routes/index.tsx?tsr-split=component": {
+    "file": "assets/index-BqwEGv-t.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_router-zMx3WVxY.js",
+      "_PageShell-1oarDiCA.js",
+      "_client-anzYIWag.js",
+      "_formatters-CkFvq0fL.js"
+    ],
+    "assets": [
+      "assets/hero-arena-Ys8Y40CD.jpg",
+      "assets/player-action-DLHnel5P.jpg"
+    ]
+  },
+  "src/routes/recruits.tsx?tsr-split=component": {
+    "file": "assets/recruits-BgA70A5L.js",
+    "name": "recruits",
+    "src": "src/routes/recruits.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_PageShell-1oarDiCA.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "src/routes/schedule.tsx?tsr-split=component": {
+    "file": "assets/schedule-C2W3IMun.js",
+    "name": "schedule",
+    "src": "src/routes/schedule.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_PageShell-1oarDiCA.js",
+      "_client-anzYIWag.js",
+      "_formatters-CkFvq0fL.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "src/routes/stats.tsx?tsr-split=component": {
+    "file": "assets/stats-c_aQxReY.js",
+    "name": "stats",
+    "src": "src/routes/stats.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_PageShell-1oarDiCA.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "src/routes/team.tsx?tsr-split=component": {
+    "file": "assets/team-jWsDgStE.js",
+    "name": "team",
+    "src": "src/routes/team.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js",
+      "_PageShell-1oarDiCA.js",
+      "_chevron-down-CPZ81NS-.js",
+      "_router-zMx3WVxY.js"
+    ]
+  },
+  "tanstack-start-manifest:v": {
+    "file": "assets/_tanstack-start-manifest_v-D-jcZa8x.js",
+    "name": "_tanstack-start-manifest_v",
+    "src": "tanstack-start-manifest:v",
+    "isDynamicEntry": true
+  },
+  "virtual:cloudflare/worker-entry": {
+    "file": "index.js",
+    "name": "index",
+    "src": "virtual:cloudflare/worker-entry",
+    "isEntry": true,
+    "imports": [
+      "_worker-entry-sH-sqigk.js"
+    ]
+  }
+}
