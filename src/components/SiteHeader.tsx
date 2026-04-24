@@ -18,7 +18,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50">
       <div className="border-b border-border/40 bg-black">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-20 max-w-7xl items-center px-4 sm:px-6">
           <Link to="/" className="flex h-full items-center">
             <img
               src={homeScreenBar}
@@ -27,7 +27,7 @@ export function SiteHeader() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="ml-auto hidden items-center gap-1 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -37,7 +37,7 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <div className="ml-4 flex items-center gap-1 border-l border-border/40 pl-4">
+            {/* <div className="ml-4 flex items-center gap-1 border-l border-border/40 pl-4">
               {[Instagram, Twitter, Youtube].map((Icon, i) => (
                 <a
                   key={i}
@@ -48,7 +48,7 @@ export function SiteHeader() {
                   <Icon className="h-3.5 w-3.5" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </nav>
 
           <button
