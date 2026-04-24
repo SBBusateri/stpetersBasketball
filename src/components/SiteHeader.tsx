@@ -9,7 +9,6 @@ const navItems = [
   { to: "/schedule" as const, label: "Schedule" },
   { to: "/coaches" as const, label: "Coaches" },
   { to: "/contact" as const, label: "Contact" },
-  { to: "/admin" as const, label: "Admin" },
 ];
 
 export function SiteHeader() {
